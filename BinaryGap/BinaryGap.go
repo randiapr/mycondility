@@ -34,7 +34,7 @@ func main() {
 func Solution(n int) int {
 	n64 := int64(n)
 	strN64 := strconv.FormatInt(n64, 2)
-	fmt.Println("n is\t\t\t", strconv.Itoa(n))
+	fmt.Printf("n is %d\n", n)
 	fmt.Println("n in binary is\t\t", strN64)
 	var gap int
 	var cndGap int
