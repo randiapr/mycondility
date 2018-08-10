@@ -34,10 +34,10 @@ func main() {
 func Solution(n int) int {
 	n64 := int64(n)
 	strN64 := strconv.FormatInt(n64, 2)
-	fmt.Printf("n is %d\n", n)
+	fmt.Printf("n is\t\t\t %d\n", n)
 	fmt.Println("n in binary is\t\t", strN64)
 	var gap int
-	var cndGap int
+	cndGap := 0
 	sliceBin := strings.Split(strN64, "")
 	for _, value := range sliceBin {
 		if value == "0" {
