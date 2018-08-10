@@ -27,7 +27,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Longest binary gap is\t", strconv.Itoa(Solution(32)))
+	fmt.Println("Longest binary gap is\t", strconv.Itoa(Solution(1041)))
 }
 
 // Solution function to solve binary gap
@@ -42,7 +42,7 @@ func Solution(n int) int {
 	for _, value := range sliceBin {
 		if value == "0" {
 			cndGap++
-		} else if value == "1" {
+		} else {
 			if cndGap > gap {
 				gap = cndGap
 				cndGap = 0
