@@ -30,7 +30,7 @@ func main() {
 	fmt.Println("Longest binary gap is\t", strconv.Itoa(Solution(32)))
 }
 
-// ..Solution
+// Solution function to solve binary gap
 func Solution(n int) int {
 	n64 := int64(n)
 	strN64 := strconv.FormatInt(n64, 2)
