@@ -23,20 +23,31 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 func main() {
-	fmt.Println("Longest binary gap is\t", strconv.Itoa(Solution(1041)))
+	fmt.Println("Longest binary gap is\t", strconv.Itoa(Solution(32)))
 }
 
+// ..Solution
 func Solution(n int) int {
 	n64 := int64(n)
 	strN64 := strconv.FormatInt(n64, 2)
-	fmt.Println("n is\t\t\t", strconv.FormatInt(n64, 10))
+	fmt.Println("n is\t\t\t", strconv.Itoa(n))
 	fmt.Println("n in binary is\t\t", strN64)
-	gap := 0
-	for i := 0;  {
-		
+	var gap int
+	var cndGap int
+	sliceBin := strings.Split(strN64, "")
+	for _, value := range sliceBin {
+		if value == "0" {
+			cndGap++
+		} else if value == "1" {
+			if cndGap > gap {
+				gap = cndGap
+				cndGap = 0
+			}
+		}
 	}
-	return 4
+	return gap
 }
