@@ -37,7 +37,7 @@ func Solution(n int) int {
 	fmt.Printf("n is\t\t\t %d\n", n)
 	fmt.Println("n in binary is\t\t", strN64)
 	var gap int
-	cndGap := 0
+	var cndGap int
 	sliceBin := strings.Split(strN64, "")
 	for _, value := range sliceBin {
 		if value == "0" {
