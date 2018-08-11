@@ -41,16 +41,14 @@ def solution(A, K):
     B = []
     for key in range(len(A)):
         newIndex = key + K
-        print("new index is {} and key is {}".format(newIndex, key))
         if newIndex > (len(A) - 1):
             newIndex -= len(A)
-            print("newIndex = ", newIndex)
             for j in range(newIndex):
                 if newIndex > (len(A) - 1):
                     newIndex -= len(A)
                 else:
                     break
-        B[newIndex] = A[key]
+        B.insert(newIndex, A[key])
     return B
 
 
