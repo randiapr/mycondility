@@ -57,9 +57,27 @@ func main() {
 
 // Solution function
 func Solution(A [5]int) int {
-	for k, v := range A {
-		if k == 0 {
+	var difference, part1, part2 int
+	for i := 0; i < len(A); i++ {
 
-		}
 	}
+
+	// for kA, vA := range A {
+	// 	var cndDifference int
+	// 	for i := kA; i < (kA + 1); i++ {
+	// 		part1 += A[i]
+	// 	}
+	// 	for j := (kA + 1); j < len(A); j++ {
+	// 		part2 += A[j]
+	// 	}
+	// 	if part1 > part2 {
+	// 		cndDifference = part1 - part2
+	// 	}else{
+	// 		cndDifference = part2 - part1
+	// 	}
+	// 	if cndDifference < difference {
+	// 		difference = cndDifference
+	// 	}
+	// }
+
 }
