@@ -50,34 +50,39 @@ import (
 )
 
 func main() {
-	arr := [5]int{3, 1, 2, 4, 3}
+	arr := [5]int{6, 1, 1, 5, 3}
 	fmt.Println("Array = ", arr)
 	fmt.Println("minimal difference = ", Solution(arr))
 }
 
 // Solution function
 func Solution(A [5]int) int {
-	var difference, part1, part2 int
+	var tape int
+	difference := 1
+	B := A[:]
 	for i := 0; i < len(A); i++ {
+		tape = i + 1
+		var part1, part2 int
+		if tape == len(A) {
+			break
+		}
+		for i := 0; i < tape; i++ {
+			part1 += B[i]
+		}
+		for j := tape; j < len(A); j++ {
+			part2 += B[j]
+		}
+		var cndDiff int
+		if part1 > part2 {
+			cndDiff = part1 - part2
+		} else {
+			cndDiff = part2 - part1
+		}
+		if cndDiff <= difference {
+			difference = cndDiff
+		}
+		fmt.Println("P = ", tape, ", difference : ", part1, "(part1) -(+) ", part2, "(part2) = ", cndDiff)
 
 	}
-
-	// for kA, vA := range A {
-	// 	var cndDifference int
-	// 	for i := kA; i < (kA + 1); i++ {
-	// 		part1 += A[i]
-	// 	}
-	// 	for j := (kA + 1); j < len(A); j++ {
-	// 		part2 += A[j]
-	// 	}
-	// 	if part1 > part2 {
-	// 		cndDifference = part1 - part2
-	// 	}else{
-	// 		cndDifference = part2 - part1
-	// 	}
-	// 	if cndDifference < difference {
-	// 		difference = cndDifference
-	// 	}
-	// }
-
+	return difference
 }
