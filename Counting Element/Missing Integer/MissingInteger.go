@@ -38,10 +38,27 @@ func main() {
 func Solution(A []int) int {
 	sort.Ints(A)
 	fmt.Println("Sorted array = ", A)
-	var smallInt int
-	for _, v := range A {
-		b := v + 1
-
+	smallInt := 1
+	var cndSmallInt int
+	for i := 0; i < len(A); i++ {
+		if i < len(A)-1 {
+			j := A[i+1] - A[i]
+			if j >= 2 {
+				cndSmallInt = A[i] + 1
+			}
+		}
+		// if (cndSmallInt == 0) && (i == len(A)) {
+		// 	for {
+		// 		cndSmallInt++
+		// 		if cndSmallInt > 0 {
+		// 			break
+		// 		}
+		// 	}
+		// }
+		if cndSmallInt < smallInt {
+			smallInt = cndSmallInt
+		}
+		fmt.Println("Index = ", i, ", cnd = ", cndSmallInt, ", smallest = ", smallInt)
 	}
 	return smallInt
 }
