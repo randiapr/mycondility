@@ -47,10 +47,24 @@
 
 package main
 
-func main() {
+import (
+	"fmt"
+)
 
+func main() {
+	arr := []int{1, 3, 1, 4, 2, 3, 5, 4}
+	bank := 5
+	fmt.Println("Given Array = ", arr)
+	fmt.Println("Earliest time = ", Solution(bank, arr))
 }
 
+// Solution function
 func Solution(X int, A []int) int {
-
+	time := -1
+	for k, v := range A {
+		if v == X {
+			time = k
+		}
+	}
+	return time
 }
