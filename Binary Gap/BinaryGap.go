@@ -27,7 +27,10 @@ import (
 )
 
 func main() {
-	fmt.Println("Longest binary gap is\t", strconv.Itoa(Solution(1041)))
+	// 561892 => 10001001001011100100
+	// 74901729 => 100011101101110100011100001
+	// 1376796946 => 1010010000100000100000100010010
+	fmt.Println("Longest binary gap is\t", strconv.Itoa(Solution(561892)))
 }
 
 // Solution function to solve binary gap
@@ -45,8 +48,8 @@ func Solution(n int) int {
 		} else {
 			if cndGap > gap {
 				gap = cndGap
-				cndGap = 0
 			}
+			cndGap = 0
 		}
 	}
 	return gap
