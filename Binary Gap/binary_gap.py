@@ -33,7 +33,7 @@ def solution(n):
         else:
             if cnd_gap > gap:
                 gap = cnd_gap
-                cnd_gap = 0
+            cnd_gap = 0
     return gap
 
 
