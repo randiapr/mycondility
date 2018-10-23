@@ -45,22 +45,18 @@ import (
 func main() {
 	arr := []int{3, 8, 9, 7, 6}
 	A := arr[:]
-	rotation := 4
+	rotation := 3
 	fmt.Println(A, ", Cyclic Rotation = ", rotation)
 	fmt.Println(Solution(A, rotation))
 }
 
 // Solution for Cyclic Rotation
 func Solution(A []int, K int) []int {
-	B := A
-	fmt.Println("A = ", A)
+	B := make([]int, len(A))
 	for i, v := range A {
-		fmt.Println("B = ", B)
 		if (i + K) >= len(A) {
-			fmt.Println("\t index to changed = ", (i+K)%len(A), ", value = ", v)
 			B[(i+K)%len(A)] = v
 		} else {
-			fmt.Println("\t index to changed = ", i+K, ", value = ", v)
 			B[i+K] = v
 		}
 	}
