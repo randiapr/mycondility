@@ -41,27 +41,25 @@ import (
 )
 
 func main() {
-	arr := [7]int{9, 3, 9, 3, 9, 7, 9}
+	arr := []int{9, 3, 9, 3, 9, 7, 9}
+	A := arr[:]
 	fmt.Println("Array = ", arr)
-	fmt.Println("unpaired element is ", Solution(arr))
+	fmt.Println("unpaired element is ", Solution(A))
 }
 
 // Solution function for Odd Occurence In Array
-func Solution(A [7]int) int {
-	var unPair int
-	B := A
-	pair := 0
-	for _, v := range B {
-		for _, v2 := range A {
-			if v == v2 {
-				pair++
-			}
+func Solution(A []int) int {
+	pairMap := make(map[int]int)
+	for i := 0; i < len(A); i++ {
+		val, isExist := pairMap[A[i]]
+		if isExist && val == 1 {
+			delete(pairMap, A[i])
+		} else {
+			pairMap[A[i]] = 1
 		}
-		if pair == 1 {
-			unPair = v
-			break
-		}
-		pair = 0
 	}
-	return unPair
+	for k := range pairMap {
+		return k
+	}
+	return 0
 }

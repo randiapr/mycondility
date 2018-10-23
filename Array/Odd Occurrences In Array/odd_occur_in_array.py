@@ -36,17 +36,16 @@
 
 
 def solution(A):
-    unpair = 0
-    pair = 0
-    B = A
-    for i in range(len(B)):
-        for j in range(len(A)):
-            if B[i] == A[j]:
-                pair += 1
-        if pair == 1:
-            unpair = B[i]
-        pair = 0
-    return unpair
+    pairMap = {}
+    for i in range(len(A)):
+        if A[i] in pairMap and pairMap[A[i]] == 1:
+            del pairMap[A[i]]
+        else:
+            pairMap[A[i]] = 1
+    
+    for key in pairMap:
+        return key
+    return 0
 
 
 def main():
