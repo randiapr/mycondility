@@ -30,20 +30,13 @@
 package main
 
 import (
-	"fmt"
+	"math"
 )
 
-func main() {
-	x := 10
-	y := 85
-	d := 30
-	fmt.Println("X = ", x)
-	fmt.Println("Y = ", y)
-	fmt.Println("D = ", d)
-	fmt.Println("Frog will jump ", Solution(x, y, d), " times")
-}
-
-// Solution function
 func Solution(X int, Y int, D int) int {
-	return (X + Y) / D
+	if X == Y {
+		return 0
+	}
+	res := (float64(Y) - float64(X)) / float64(D)
+	return math.Ceil(res)
 }
