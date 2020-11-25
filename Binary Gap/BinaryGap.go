@@ -34,23 +34,23 @@ func main() {
 }
 
 // Solution function to solve binary gap
-func Solution(n int) int {
-	n64 := int64(n)
-	strN64 := strconv.FormatInt(n64, 2)
-	fmt.Printf("n is\t\t\t %d\n", n)
-	fmt.Println("n in binary is\t\t", strN64)
-	var gap int
-	var cndGap int
-	sliceBin := strings.Split(strN64, "")
-	for _, value := range sliceBin {
-		if value == "0" {
-			cndGap++
-		} else {
-			if cndGap > gap {
-				gap = cndGap
-			}
-			cndGap = 0
-		}
-	}
-	return gap
+func Solution(N int) int {
+    n64 := int64(N)
+    strN64 := strconv.FormatInt(n64,2)
+    var(
+        gap int
+        cndGap int
+    )
+    sliceBin := strings.Split(strN64, "")
+    for _, val := range sliceBin {
+        if val == "0" {
+            cndGap++
+        } else {
+            if cndGap > gap {
+                gap = cndGap
+            }
+            cndGap = 0
+        }
+    }
+    return gap
 }
