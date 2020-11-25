@@ -38,5 +38,5 @@ func Solution(X int, Y int, D int) int {
 		return 0
 	}
 	res := (float64(Y) - float64(X)) / float64(D)
-	return math.Ceil(res)
+	return int(math.Ceil(res))
 }
