@@ -29,29 +29,23 @@
 package main
 
 import (
-	"fmt"
 	"sort"
 )
 
-func main() {
-	arr := [4]int{2, 3, 1, 5}
-	fmt.Println("Given Array = ", arr)
-	fmt.Println("Missing element = ", Solution(arr))
-}
-
-// Solution function
-func Solution(A [4]int) int {
-	B := A[:]
-	sort.Ints(B)
-	var missing int
-	for i := 0; i < len(B); i++ {
-		if i < len(B) {
-			k := B[i+1] - B[i]
-			if k > 1 {
-				missing = B[i] + 1
-				break
-			}
-		}
+func Solution(A []int) int {
+	if len(A) == 0 {
+		return 1
 	}
-	return missing
+
+	sort.Ints(A)
+	sumAll := 0
+	for _, num := range A {
+		sumAll += num
+	}
+
+	N := float64(len(A))
+	expSumAll := float64((N + 1) * (N + 2) / 2)
+
+	missingNum := expSumAll - float64(sumAll)
+	return int(missingNum)
 }
